@@ -60,6 +60,7 @@ Este es el repositorio de mi proyecto final, llamado "ProyectoFinal.Fadail". Aqu
 
 Si deseas ejecutar este proyecto en tu máquina localmente, sigue estos pasos:
 
+```bash
 # 1. Clonar el Repositorio
 git clone https://github.com/francofada/ProyectoFinal.Fadail.git
 
