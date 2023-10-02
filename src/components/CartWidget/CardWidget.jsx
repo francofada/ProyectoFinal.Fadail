@@ -1,6 +1,6 @@
 import clasess from './CardWidget.module.css'
 import { FaCartArrowDown } from "react-icons/fa";
-import { useCart } from '../../context/cartContext';
+import { useCart } from '../../Context/cartContext';
 import { useNavigate } from 'react-router-dom';
 
 const CartWidget = () =>{
