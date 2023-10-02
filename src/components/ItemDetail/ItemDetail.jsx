@@ -1,7 +1,7 @@
 import clasess from './ItemDetail.module.css'
 import {useState} from 'react'
 import ItemCount from '../ItemCount/ItemCount';
-import { useCart } from '../../Context/CartContext';
+import { useCart } from '../../context/CartContext';
 import { useNotification } from '../../Notification/NotificationService';
 import { Link } from 'react-router-dom';
 

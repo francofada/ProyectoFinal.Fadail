@@ -1,4 +1,4 @@
-import { useCart } from "../../Context/CartContext"
+import { useCart } from "../../context/CartContext"
 import { Link } from "react-router-dom"
 import clasess from './Cart.module.css'
 import { useState, useEffect } from "react"
