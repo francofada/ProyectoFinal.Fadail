@@ -1,17 +1,19 @@
-import { useCart } from "../../Context/cartContext"
+import { useCart } from "../../Context/CartContext"
 import clasess from './Checkout.module.css'
 import { collection, query, where, documentId,getDocs, writeBatch, addDoc } from 'firebase/firestore'
 import { db } from "../../Service/Firebase"
-import { useState, useCallback, useEffect} from 'react'
+import { useState, useEffect} from 'react'
 import { useNavigate } from "react-router-dom"
 import Swal from "sweetalert2"
+import { useNotification } from '../../Notification/NotificationService';
+
 
 
 const Checkout = ()=>{
     const [loading, setLoading] = useState(false)
     const { cart, total, clearCart } = useCart()
     const navigate = useNavigate()
-
+    const {setNotification} = useNotification()
     
     useEffect(() => {
       document.title = "Athena Tienda Online - Checkout";
@@ -73,25 +75,11 @@ const Checkout = ()=>{
           }));
         }
       };
-      const handleInputChange = useCallback((e) => {
-        const { name, value } = e.target;
-        setFormData((prevData) => ({
-          ...prevData,
-          [name]: value,
-        }));
-      }, []);
+      
       
 
 
     const createOrder = async () => {
-      if (formErrors.name || formErrors.phone || formErrors.email) {
-        Swal.fire(
-          'Completa los Datos',
-          'Por favor, corrige los errores en el formulario antes de continuar.',
-          'warning'
-        );
-        return;
-      }
         try {
 
             setLoading(true)
@@ -109,35 +97,35 @@ const Checkout = ()=>{
             const batch = writeBatch(db)
             const outOfStock = []
     
-            const ids = cart.map(prod => prod.id)
+            const ids = cart.map((prod) => prod.id)
+      
     
             const productsRef = query(collection(db, 'products'), where(documentId(), 'in', ids))
-
             const { docs } = await getDocs(productsRef)
     
             docs.forEach(doc => {
-                const fields = doc.data()
-                const stockDb = fields.stock
-    
-                const productAddedToCart = cart.find(prod => prod.id === doc.id)
-                const prodQuantity = productAddedToCart?.quantity
-    
-                if(stockDb >= prodQuantity) {
-                    batch.update(doc.ref, { stock: stockDb - prodQuantity })
-                } else {
-                    outOfStock.push({ id: doc.id, ...fields })
-                }
-            })
+                  const fields = doc.data()
+                  const stockDb = fields.stock
+      
+                  const productAddedToCart = cart.find(prod => prod.id === doc.id)
+                  const prodQuantity = productAddedToCart?.quantity
+      
+                        if(stockDb >= prodQuantity) {
+                            batch.update(doc.ref, { stock: stockDb - prodQuantity })
+                        } else {
+                            outOfStock.push({ id: doc.id, ...fields })
+                        }
+          })
     
             if(outOfStock.length === 0) {
-                const orderRef = collection(db, 'orders')
+              const orderRef = collection(db, 'orders')
     
-                const { id: orderId } = await addDoc(orderRef, objOrder)
+              const { id: orderId } = await addDoc(orderRef, objOrder)
                 
-                batch.commit()
-                clearCart()
-                navigate('/')
-                console.log('el numero de orden es: ' + orderId)
+              batch.commit()
+              clearCart()
+              navigate('/')
+                setNotification('el numero de orden es: ' + orderId)
             } else {
                 console.error('Hay productos fuera de stock...')
             }
