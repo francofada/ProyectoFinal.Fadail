@@ -1,4 +1,4 @@
-import { useCart } from "../../Context/cartContext"
+import { useCart } from "../../Context/CartContext"
 import clasess from './Checkout.module.css'
 import { collection, query, where, documentId,getDocs, writeBatch, addDoc } from 'firebase/firestore'
 import { db } from "../../Service/Firebase"
