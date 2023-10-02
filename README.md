@@ -50,3 +50,22 @@ Gracias por ser parte de esta historia y por confiar en Athena Online para tus n
 - [React JS](https://reactjs.org/)
 - [Firebase](https://firebase.google.com/)
 - [Vercel](https://vercel.com/)
+
+
+# ProyectoFinal.Fadail
+
+Este es el repositorio de mi proyecto final, llamado "ProyectoFinal.Fadail". Aquí encontrarás información sobre cómo clonar, instalar y ejecutar la aplicación localmente.
+
+## Running Locally
+
+Si deseas ejecutar este proyecto en tu máquina localmente, sigue estos pasos:
+
+# 1. Clonar el Repositorio
+git clone https://github.com/francofada/ProyectoFinal.Fadail.git
+
+# 2. Ingresar al Directorio del Proyecto
+cd ProyectoFinal.Fadail
+
+# 3. Instalar Dependencias
+# Asegúrate de que Node.js esté instalado en tu máquina. Luego, instala las dependencias del proyecto ejecutando:
+npm install
