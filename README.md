@@ -30,7 +30,7 @@ Por favor, ten en cuenta que nuestra página web actual es un prototipo. Aunque 
 
 ## Test de la App
 
-Antes de realizar una compra, te invitamos a probar nuestra aplicación en un entorno de prueba. Puedes acceder a la versión de prueba [https://athenasonline.vercel.app/].
+Antes de realizar una compra, te invitamos a probar nuestra aplicación en un entorno de prueba. Puedes acceder a la versión de prueba [AQUI](https://athenasonline.vercel.app/).
 
 ## Contáctame
 
