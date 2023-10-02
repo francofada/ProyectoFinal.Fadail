@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;500&family=Inter:wght@300;500;600;900&display=swap');
+.itemlist {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+.itemlist p{
+    font-family: 'Inter', sans-serif;
+    font-size:50px;
+    font-weight: 500;
+    color: #72748e;
+    
+}
+.loaders{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loader {
+  width: 150px;
+  height: 150px;
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+} 
+.loader::after {
+  content: '';  
+  box-sizing: border-box;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-bottom-color: #ff7300;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} 

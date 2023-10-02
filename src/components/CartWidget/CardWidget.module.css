@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;500&family=Inter:wght@300;500;600&display=swap');
+
+.carro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+.carro a{
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+    align-items: center;
+    border: 2px solid #ff7300;
+    border-radius: 90px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    color: #ffffff;
+    transition: 0.5s;
+        &:hover{
+            color: #ff7300;
+            
+        }
+}
+.carro h3{
+    color: #ffffff;
+    font-size:30px;
+    font-family: 'Cabin', sans-serif;
+    font-weight: 400;
+}
