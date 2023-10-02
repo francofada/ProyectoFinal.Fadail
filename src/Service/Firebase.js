@@ -4,12 +4,12 @@ import {getFirestore} from 'firebase/firestore'
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDxi6PJz4KFX-oozBNDVW5ex9ylh54KtZc",
-  authDomain: "ecommerce-fadail.firebaseapp.com",
-  projectId: "ecommerce-fadail",
-  storageBucket: "ecommerce-fadail.appspot.com",
-  messagingSenderId: "110486252908",
-  appId: "1:110486252908:web:8be16840eaadca182a5749"
+  apiKey:import.meta.env.VITE_apiKey,
+  authDomain:import.meta.env.VITE_authDomain,
+  projectId:import.meta.env.VITE_projectId,
+  storageBucket:import.meta.env.VITE_storageBucket,
+  messagingSenderId:import.meta.env.VITE_messagingSenderId,
+  appId:import.meta.env.VITE_appId
 };
 
 const app = initializeApp(firebaseConfig);
